@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/ContactItem should match the snapshot 1`] = `
+<DocumentFragment>
+  <ul
+    class="MuiList-root makeStyles-root-1 MuiList-padding MuiList-subheader"
+  >
+    <li />
+    <li
+      class="makeStyles-listSection-2"
+    >
+      <ul
+        class="makeStyles-ul-3"
+      >
+        <li
+          class="MuiListSubheader-root MuiListSubheader-sticky MuiListSubheader-gutters"
+        >
+          groupItem1
+        </li>
+        <div>
+          1
+        </div>
+        <div>
+          2
+        </div>
+        <div>
+          3
+        </div>
+      </ul>
+    </li>
+    <li
+      class="makeStyles-listSection-2"
+    >
+      <ul
+        class="makeStyles-ul-3"
+      >
+        <li
+          class="MuiListSubheader-root MuiListSubheader-sticky MuiListSubheader-gutters"
+        >
+          groupItem2
+        </li>
+        <div>
+          4
+        </div>
+        <div>
+          5
+        </div>
+        <div>
+          6
+        </div>
+      </ul>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

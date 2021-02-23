@@ -20,7 +20,7 @@ interface IContactsContext {
   setActiveContactId: React.Dispatch<SetStateAction<string>>;
 }
 
-const initialState = {
+export const initialState = {
   searchQuery: '',
   setSearchQuery: noop,
   contacts: {},
@@ -32,7 +32,7 @@ const initialState = {
   setActiveContactId: noop,
 };
 
-const ContactsContext = React.createContext<IContactsContext>(initialState);
+export const ContactsContext = React.createContext<IContactsContext>(initialState);
 
 type ContactsContextProviderProps = React.PropsWithChildren<{}>;
 

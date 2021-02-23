@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/ContactItem should match the snapshot 1`] = `
+<DocumentFragment>
+  <li
+    class="MuiListItem-root MuiListItem-gutters"
+  >
+    <div
+      class="MuiListItemAvatar-root"
+    >
+      <div
+        class="MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault"
+      >
+        T
+      </div>
+    </div>
+    <div
+      class="MuiListItemText-root MuiListItemText-multiline"
+    >
+      <span
+        class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+      >
+        test
+      </span>
+      <p
+        class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+      >
+        123
+      </p>
+    </div>
+  </li>
+</DocumentFragment>
+`;

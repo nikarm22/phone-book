@@ -2,12 +2,12 @@ import { Avatar, ListItem, ListItemAvatar, ListItemText } from '@material-ui/cor
 import React from 'react';
 import IContact from '../../constants/types/contact';
 
-export interface IContactItem {
+export interface IContactItemProps {
   contact: IContact;
   onClick: () => void;
 }
 
-export default function ContactItem(props: IContactItem) {
+export default function ContactItem(props: IContactItemProps) {
   const { contact, onClick } = props;
 
   return (

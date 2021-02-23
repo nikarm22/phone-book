@@ -1,5 +1,5 @@
 import { Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button, Avatar, makeStyles } from '@material-ui/core';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { ChangeEventHandler, KeyboardEventHandler, useCallback, useEffect, useState } from 'react';
 import IContact from '../../constants/types/contact';
 
 export interface IContactDialogProps {
@@ -25,8 +25,8 @@ export default function ContactDialog(props: IContactDialogProps) {
   const [currentName, setCurrentName] = useState('');
   const [currentNumber, setCurrentNumber] = useState('');
 
-  const handleNameChange = (event: any) => setCurrentName(event.target.value);
-  const handleNumberChange = (event: any) => setCurrentNumber(event.target.value);
+  const handleNameChange: ChangeEventHandler<HTMLInputElement> = (event) => setCurrentName(event.target.value);
+  const handleNumberChange: ChangeEventHandler<HTMLInputElement> = (event) => setCurrentNumber(event.target.value);
 
   const handleSave = useCallback(() => {
     setCurrentName('');
@@ -35,7 +35,7 @@ export default function ContactDialog(props: IContactDialogProps) {
     onClose();
   }, [setCurrentName, setCurrentNumber, onSave, onClose, currentName, currentNumber]);
 
-  const handleKeyUp = useCallback((event) => {
+  const handleKeyUp: KeyboardEventHandler = useCallback((event) => {
     if (event.key === 'Enter') handleSave();
   }, [handleSave]);
 

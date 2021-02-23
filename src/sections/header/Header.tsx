@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { ChangeEventHandler, useCallback } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -24,7 +24,7 @@ export default function Header() {
   const { searchQuery, setSearchQuery } = useContacts();
   const classes = useStyles();
 
-  const handleSearchChange = useCallback(
+  const handleSearchChange: ChangeEventHandler<HTMLInputElement> = useCallback(
     ({ target }) => setSearchQuery(target.value as string),
     [setSearchQuery],
   );

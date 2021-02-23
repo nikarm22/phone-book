@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../header/Header';
-import Content from '../content/Content';
+import ContactList from '../contact-list/ContactList';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className={classes.app}>
       <Header />
-      <Content />
+      <ContactList />
     </div>
   );
 }

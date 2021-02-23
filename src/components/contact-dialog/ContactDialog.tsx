@@ -1,11 +1,12 @@
 import { Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button, Avatar, makeStyles } from '@material-ui/core';
-import React from 'react';
+import React, { ChangeEventHandler, useCallback, useEffect, useState } from 'react';
 import IContact from '../../constants/types/contact';
 
 export interface IContactDialogProps {
   contact?: IContact;
   isOpen: boolean;
   onClose: () => void;
+  onSave: (data: Partial<IContact>) => void;
   isEditMode?: boolean;
 }
 
@@ -19,12 +20,39 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ContactDialog(props: IContactDialogProps) {
-  const { contact, isOpen, onClose, isEditMode } = props;
+  const { contact, isOpen, onClose, onSave, isEditMode } = props;
+
+  const [currentName, setCurrentName] = useState('');
+  const [currentNumber, setCurrentNumber] = useState('');
+
+  const handleNameChange = (event: any) => setCurrentName(event.target.value);
+  const handleNumberChange = (event: any) => setCurrentNumber(event.target.value);
+
+  const handleSave = () => {
+    setCurrentName('');
+    setCurrentNumber('');
+    onSave({ name: currentName, number: currentNumber });
+    onClose();
+  };
+
+  const handleKeyUp = useCallback((event) => {
+    if (event.key === 'Enter') handleSave();
+  }, [handleSave]);
+
+  useEffect(() => {
+    if(contact) {
+      setCurrentName(contact.name);
+      setCurrentNumber(contact.number);
+    } else {
+      setCurrentName('');
+      setCurrentNumber('');
+    }
+  }, [isOpen, contact]);
 
   const classes = useStyles();
 
   return (
-    <Dialog open={isOpen} onClose={onClose} aria-labelledby="form-dialog-title">
+    <Dialog open={isOpen} onClose={onClose} onKeyUp={handleKeyUp}>
       <DialogTitle>{ isEditMode ? 'Edit Contact' : 'Add Contact' }</DialogTitle>
       <DialogContent>
         <Avatar className={classes.avatar}></Avatar>
@@ -34,13 +62,16 @@ export default function ContactDialog(props: IContactDialogProps) {
           label="Name"
           type="text"
           fullWidth
+          value={currentName}
+          onChange={handleNameChange}
         />
         <TextField
-          autoFocus
           margin="dense"
           label="Number"
           type="text"
           fullWidth
+          value={currentNumber}
+          onChange={handleNumberChange}
         />
       </DialogContent>
       <DialogActions>
@@ -58,7 +89,7 @@ export default function ContactDialog(props: IContactDialogProps) {
           color="primary"
           variant="contained"
           size="small"
-          onClick={onClose}
+          onClick={handleSave}
         >
           { isEditMode ? 'Save' : 'Add' }
         </Button>

@@ -4,13 +4,14 @@ import IContact from '../../constants/types/contact';
 
 export interface IContactItem {
   contact: IContact;
+  onClick: () => void;
 }
 
 export default function ContactItem(props: IContactItem) {
-  const { contact } = props;
+  const { contact, onClick } = props;
 
   return (
-    <ListItem>
+    <ListItem onClick={onClick}>
       <ListItemAvatar>
         <Avatar>{contact.name.charAt(0).toUpperCase() || '#'}</Avatar>
       </ListItemAvatar>

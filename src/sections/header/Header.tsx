@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import SearchField from '../../components/search-field/SearchField';
 import { title } from '../../constants/strings';
-import { useContacts } from '../../stores/contacts/context';
+import { useContacts } from '../../stores/contacts';
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {

@@ -5,10 +5,13 @@ import App from './sections/app/App';
 import reportWebVitals from './utils/reportWebVitals';
 
 import './index.scss';
+import { ContactsContextProvider } from './stores/contacts/context';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ContactsContextProvider>
+      <App />
+    </ContactsContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
